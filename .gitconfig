@@ -1,0 +1,28 @@
+# git repertory project configuration
+# export GIT_SSL_NO_VERIFY=1
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	symlinks = true
+	ignorecase = false
+	autocrlf = false
+	safecrlf = warn
+[http]
+	sslVerify = false
+[user]
+	name = SamadhiFly
+	email = lsgx@live.com
+[remote "origin"]
+	url = https://192.168.11.1:3000/jjx/qt-hello.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "github"]
+	url = https://github.com/SamadhiFly/qt-hello.git
+	fetch = +refs/heads/*:refs/remotes/github/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[branch "mydev"]
+	remote = origin
+	merge = refs/heads/mydev
