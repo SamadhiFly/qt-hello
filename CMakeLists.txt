@@ -17,38 +17,39 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 set(TS_FILES qt-hello_zh_CN.ts)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        ${TS_FILES}
+  main.cpp
+  mainwindow.cpp
+  mainwindow.h
+  mainwindow.ui
+  ${TS_FILES}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(qt-hello
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-    )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET qt-hello APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
+  qt_add_executable(qt-hello
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+  )
 
-    qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+  # Define target properties for Android with Qt 6 as:
+  # set_property(TARGET qt-hello APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+  # ${CMAKE_CURRENT_SOURCE_DIR}/android)
+  # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
+  qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 else()
-    if(ANDROID)
-        add_library(qt-hello SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(qt-hello
-            ${PROJECT_SOURCES}
-        )
-    endif()
+  if(ANDROID)
+    add_library(qt-hello SHARED
+      ${PROJECT_SOURCES}
+    )
 
-    qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+  # Define properties for Android with Qt 5 after find_package() calls as:
+  # set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+  else()
+    add_executable(qt-hello
+      ${PROJECT_SOURCES}
+    )
+  endif()
+
+  qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
 target_link_libraries(qt-hello PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
@@ -66,5 +67,12 @@ install(TARGETS qt-hello
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(qt-hello)
+  qt_finalize_executable(qt-hello)
 endif()
+
+# 调用创建 compile_commands.json 链接的脚本
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+include(CreateCompileCommandsSymlink)
+create_compile_commands_symlink(
+  LINK_PATH ${CMAKE_SOURCE_DIR}/compile_commands.json
+)
