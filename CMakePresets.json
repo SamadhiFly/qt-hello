@@ -1,0 +1,40 @@
+{
+  "version": 7,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "config-mingw",
+      "displayName": "Configure Preset for MinGW",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_PROJECT_INCLUDE_BEFORE": "C:\\qtcreator-mingw\\share\\qtcreator\\package-manager\\auto-setup.cmake",
+        "QT_QMAKE_EXECUTABLE": "C:\\qt-mingw\\bin\\qmake.exe",
+        "CMAKE_PREFIX_PATH": "C:\\qt-mingw",
+        "CMAKE_C_COMPILER": "C:\\mingw64\\bin\\gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:\\mingw64\\bin\\g++.exe"
+      },
+      "environment": {
+        "MY_ENVIRONMENT_VARIABLE": "Test",
+        "PATH": "C:\\mingw64\\bin;C:\\usr\\bin:$penv{PATH}",
+        "CMT_MINGW_PATH": "C:\\mingw64\\bin",
+        "MSYSTEM": "MINGW64",
+        "MSYSTEM_PREFIX": "/mingw64"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "build-mingw",
+      "displayName": "Build Preset for MinGW",
+      "configurePreset": "config-mingw",
+      "jobs": 1
+    }
+  ]
+}

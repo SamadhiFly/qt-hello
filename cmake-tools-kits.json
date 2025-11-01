@@ -1,0 +1,63 @@
+[
+  {
+    "name": "GCC 11.2.0 x86_64-w64-mingw32",
+    "compilers": {
+      "C": "C:\\mingw64\\bin\\gcc.exe",
+      "CXX": "C:\\mingw64\\bin\\g++.exe"
+    },
+    "isTrusted": true,
+    "environmentVariables": {
+      "CMT_MINGW_PATH": "C:\\mingw64\\bin",
+      "MSYSTEM": "MINGW64",
+      "MSYSTEM_PREFIX": "/mingw64",
+      "PATH": "C:\\mingw64\\bin;C:\\usr\\bin;${env:PATH}"
+    },
+    "preferredGenerator": {
+      "name": "MinGW Makefiles"
+    }
+  },
+  {
+    "name": "Visual Studio Community 2022 Release - amd64",
+    "visualStudio": "25f7ee7e",
+    "visualStudioArchitecture": "x64",
+    "isTrusted": true,
+    "preferredGenerator": {
+      "name": "Visual Studio 17 2022",
+      "platform": "x64",
+      "toolset": "host=x64"
+    }
+  },
+  {
+    "name": "Visual Studio Community 2022 Release - amd64_x86",
+    "visualStudio": "25f7ee7e",
+    "visualStudioArchitecture": "x64",
+    "isTrusted": true,
+    "preferredGenerator": {
+      "name": "Visual Studio 17 2022",
+      "platform": "win32",
+      "toolset": "host=x64"
+    }
+  },
+  {
+    "name": "Visual Studio Community 2022 Release - x86",
+    "visualStudio": "25f7ee7e",
+    "visualStudioArchitecture": "x86",
+    "isTrusted": true,
+    "preferredGenerator": {
+      "name": "Visual Studio 17 2022",
+      "platform": "win32",
+      "toolset": "host=x86"
+    }
+  },
+  {
+    "name": "Visual Studio Community 2022 Release - x86_amd64",
+    "visualStudio": "25f7ee7e",
+    "visualStudioArchitecture": "x86",
+    "isTrusted": true,
+    "preferredGenerator": {
+      "name": "Visual Studio 17 2022",
+      "platform": "x64",
+      "toolset": "host=x86"
+    }
+  }
+]
