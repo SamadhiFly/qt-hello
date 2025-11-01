@@ -10,7 +10,7 @@
       "name": "config-mingw",
       "displayName": "Configure Preset for MinGW",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}",
+      "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
         "CMAKE_BUILD_TYPE": "Release",
