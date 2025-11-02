@@ -10,22 +10,31 @@
       "name": "config-mingw",
       "displayName": "Configure Preset for MinGW",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/${presetName}",
+      "binaryDir": "${sourceDir}",
       "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
         "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_PROJECT_INCLUDE_BEFORE": "C:\\qtcreator-mingw\\share\\qtcreator\\package-manager\\auto-setup.cmake",
-        "QT_QMAKE_EXECUTABLE": "C:\\qt-mingw\\bin\\qmake.exe",
-        "CMAKE_PREFIX_PATH": "C:\\qt-mingw",
-        "CMAKE_C_COMPILER": "C:\\mingw64\\bin\\gcc.exe",
-        "CMAKE_CXX_COMPILER": "C:\\mingw64\\bin\\g++.exe"
+        "CMAKE_C_FLAGS_RELEASE": "-DNDEBUG",
+        "CMAKE_CXX_FLAGS_RELEASE": "-DNDEBUG",
+        "CMAKE_PROJECT_INCLUDE_BEFORE": "C:/qtcreator-mingw/share/qtcreator/package-manager/auto-setup.cmake",
+        "QT_QMAKE_EXECUTABLE": "C:/qt-mingw/bin/qmake.exe",
+        "CMAKE_PREFIX_PATH": "C:/qt-mingw",
+        "CMAKE_C_COMPILER": "C:/mingw64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/mingw64/bin/g++.exe",
+        "CMAKE_ASM_COMPILER": "C:/mingw64/bin/gcc.exe",
+        "CMAKE_INSTALL_PREFIX": "/usr"
       },
       "environment": {
         "MY_ENVIRONMENT_VARIABLE": "Test",
-        "PATH": "C:\\mingw64\\bin;C:\\usr\\bin:$penv{PATH}",
-        "CMT_MINGW_PATH": "C:\\mingw64\\bin",
+        "PATH": "C:/mingw64/bin;C:/usr/bin:$penv{PATH}",
+        "CMT_MINGW_PATH": "C:/mingw64/bin",
         "MSYSTEM": "MINGW64",
-        "MSYSTEM_PREFIX": "/mingw64"
+        "MSYSTEM_PREFIX": "/mingw64",
+        "CFLAGS": "-isystem C:/mingw64/opt/include -isystem C:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -isystem C:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -isystem C:/mingw64/x86_64-w64-mingw32/include -isystem C:/mingw64/include ",
+        "CXXFLAGS": "-isystem C:/mingw64/opt/include -isystem C:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -isystem C:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -isystem C:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -isystem C:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -isystem C:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -isystem C:/mingw64/x86_64-w64-mingw32/include -isystem C:/mingw64/include ",
+        "LDFLAGS": "-LC:/mingw64/opt/lib -LC:/mingw64/x86_64-w64-mingw32/lib -LC:/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0 -LC:/mingw64/lib/gcc/x86_64-w64-mingw32/lib -LC:/mingw64/lib ",
+        "SRCDIR": "${sourceDir}",
+        "DESTDIR": "${sourceDir}/install"
       }
     }
   ],
